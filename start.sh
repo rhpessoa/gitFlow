@@ -7,9 +7,13 @@ echo "Bem-vindo ao programa!"
 # Solicita o nome do usuário
 read -p "Por favor, digite seu nome: " nome
 
-# Verifica se o nome tem pelo menos 2 caracteres
-if [ ${#nome} -lt 2 ]; then
+# Verifica se o nome está vazio ou nulo
+if [ -z "$nome" ]; then
+  echo "Erro: O nome não pode estar vazio."
+  exit 1
+elif [ ${#nome} -lt 2 ]; then
   echo "Erro: O nome deve ter pelo menos 2 caracteres."
+  exit 1
 else
   echo "Bem-vindo, $nome!"
 fi
