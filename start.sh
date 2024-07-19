@@ -4,6 +4,21 @@
 # Apresenta mensagem de boas-vindas
 echo "Bem-vindo ao programa!"
 
+# Função para registrar logs de erro
+log_error() {
+  local message="$1"
+  local log_dir="logs"
+  local log_file="$log_dir/log.txt"
+  
+  # Verifica se o diretório 'logs' existe, senão cria
+  if [ ! -d "$log_dir" ]; then
+    mkdir "$log_dir"
+  fi
+
+  # Registra a mensagem de erro com data e hora no arquivo de log
+  echo "$(date +'%Y-%m-%d %H:%M:%S') - $message" >> "$log_file"
+}
+
 # Solicita o nome do usuário
 read -p "Por favor, digite seu nome: " nome
 
