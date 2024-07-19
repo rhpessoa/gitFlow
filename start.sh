@@ -14,6 +14,9 @@ if [ -z "$nome" ]; then
 elif [ ${#nome} -lt 2 ]; then
   echo "Erro: O nome deve ter pelo menos 2 caracteres."
   exit 1
+elif ! [[ "$nome" =~ ^[a-zA-Z]+$ ]]; then
+  echo "Erro: O nome deve conter apenas caracteres alfabéticos."
+  exit 1
 else
   echo "Bem-vindo, $nome!"
 fi
